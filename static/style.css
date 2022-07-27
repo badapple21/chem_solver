@@ -1,0 +1,51 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #fff;
+}
+
+
+.nav__spacing {
+    margin: auto 4em;
+}
+
+footer{
+    color: rgba(255, 255, 255, .8);
+    background-color: rgba(0, 0, 0, .85);
+    height: 3.5em;
+    text-decoration: none;
+    padding-top: 1.25em;
+    padding-left: 2em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20% auto;
+}
+
+.main_child {
+    display: inline-block;
+}
+
+.main_input {
+    text-align: center;
+}
+
+.input_charge {
+    width: 3em;
+    text-align: center;
+}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<main class="main">
+    <form class="main_form">
+        <div class="input_box main_child">
+            <input type="text" class="main_input">
+            <input type="number" class="input_charge">
+        </div>
+        
+        <h2 class="main_child">+</h2>
+        
+        <div class="input_box main_child">
+            <input type="text" class="main_input">
+            <input type="number" class="input_charge">
+        </div>
+        <h2 class="main_child">-></h2>
+        <input type="text" class="main_child main_input" disabled>
+    </form>
+</main>
+{% endblock %}
