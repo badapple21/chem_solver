@@ -54,9 +54,8 @@
         let element2 = document.querySelector("#element2");
         let charge2 = document.querySelector("#charge2");
 
-    charge2.addEventListener("#charge2", async function(){
-        console.log("IN ASYNC");
-        let response = await fetch("/fetch?q=" + element1 + "&w=" + charge1 + "&e=" + element2 + "&r=" + charge2);
+    charge2.addEventListener("input", async function(){
+        let response = await fetch("/fetch?q=" + element1.value + "&w=" + charge1.value + "&e=" + element2.value + "&r=" + charge2.value);
         let answer = await response.text();
         document.getElementById("ans").value = answer;
 })

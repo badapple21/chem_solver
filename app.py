@@ -14,7 +14,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 def index():
     return render_template("index.html")
 
-@app.route("/fetch", methods=["FETCH"])
+@app.route("/fetch")
 def fetch():
     q = request.args.get("q")
     w = request.args.get("w")
@@ -26,5 +26,5 @@ def fetch():
         ans = "TEST"
 
     app.logger.error(ans)
-    return json.dumps(ans)
+    return ans
 
