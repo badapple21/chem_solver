@@ -2,7 +2,7 @@ from crypt import methods
 import os
 from flask import Flask, redirect, render_template, request, session, json
 from flask_session import Session
-from solver import solve
+from solver import solve, format
 
 #configure application
 app = Flask(__name__)
@@ -21,10 +21,15 @@ def fetch():
     e = request.args.get("e")
     r = request.args.get("r")
     if q and w and e and r:
-        ans = solve(q, w, e, r)
-    else:
-        ans = "TEST"
+        status, coefficient1, coefficient2, charge1, charge2, reactant1, reactant2 = solve(q, w, e, r)
+        if(status=="Error"):
+            rtnHTML="Could not calculate"
+        else:
+            rtnHTML = format(coefficient1, coefficient2, charge1, charge2, reactant1, reactant2)
 
-    app.logger.error(ans)
-    return ans
+    else:
+        rtnHTML = "Error - enter all felids" 
+
+
+    return rtnHTML
 

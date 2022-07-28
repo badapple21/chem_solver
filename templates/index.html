@@ -19,7 +19,21 @@
             <input type="number" class="input_charge" id="charge2">
         </div>
         <h2 class="main_child">-></h2>
-        <input type="text" class="main_child main_input" disabled id="ans">
+        <h3 id="ans" class="main_child"></h3>
+        <!-- <input type="text" class="main_child main_input" disabled id="ans"> -->
     </form>
+    <script>
+        let element1 = document.querySelector("#element1");
+        let charge1 = document.querySelector("#charge1");
+        let element2 = document.querySelector("#element2");
+        let charge2 = document.querySelector("#charge2");
+
+    charge2.addEventListener("input", async function(){
+        let response = await fetch("/fetch?q=" + element1.value + "&w=" + charge1.value + "&e=" + element2.value + "&r=" + charge2.value);
+        let answer = await response.text();
+        console.log(answer);
+        document.getElementById("ans").innerHTML = answer;
+})
+    </script>
 </main>
 {% endblock %}
