@@ -20,12 +20,15 @@ def fetch():
     w = request.args.get("w")
     e = request.args.get("e")
     r = request.args.get("r")
-    if q and w and e and r:
-        status, coefficient1, coefficient2, charge1, charge2, reactant1, reactant2 = solve(q, w, e, r)
+    t = request.args.get("t")
+    y = request.args.get("y")
+
+    if q and w and e and r and t and y:
+        status, coefficient1, coefficient2, charge1, charge2, reactant1, reactant2 = solve(q, w, e, r, t, y)
         if(status=="Error"):
             rtnHTML="Could not calculate"
         else:
-            rtnHTML = format(coefficient1, coefficient2, charge1, charge2, reactant1, reactant2)
+            rtnHTML = format(coefficient1, coefficient2, charge1, charge2, reactant1, reactant2, t, y)
 
     else:
         rtnHTML = "Error - enter all felids" 

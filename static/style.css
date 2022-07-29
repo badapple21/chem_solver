@@ -41,11 +41,70 @@ footer{
     display: inline-block;
 }
 
-.main_input {
+
+
+#element1_input_div {
+    display: inline-grid;
+    grid-template-columns: .5em 4em .5em 3em 4em 4em .5em 3em .5em 4em;
+    /*                       1    2   3    4   5   6   7  8     9   10*/
+    grid-template-rows: 2em 2em 5/3em 5/3em 5/3em 2em 2em;
+    /*                    1  2    3     4     5    6    7 */
+}
+
+#element1 {
+    text-align: center;
+    grid-column: 2;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    font-size: 2em;
+
+}
+
+#charge1 {
+    width: 3em;
+    text-align: center;
+    grid-column: 4;
+    grid-row: 2;
+}
+
+#plus {
+    grid-column: 5;
+    grid-row: 4;
+    text-align: center;   
+}
+
+#amount1 {
+    width: 3em;
+    height: 2em;  
+    text-align: center;
+    grid-column: 4;
+    grid-row: 6;
+
+}
+
+#element2 {
+    text-align: center;
+    font-size: 2em;
+    grid-column: 6;
+    grid-row-start: 3;
+    grid-row-end: 5;
+
+}
+
+#charge2 {
+    grid-column: 8;
+    grid-row: 2;
     text-align: center;
 }
 
-.input_charge {
-    width: 3em;
+#amount2 {
+    grid-column: 8;
+    grid-row: 6;
+    text-align: center;
+}
+
+#Arrow {
+    grid-row: 4;
+    grid-column: 10;
     text-align: center;
 }
