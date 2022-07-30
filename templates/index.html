@@ -20,12 +20,13 @@
 
             <input type="text" class="main_input" id="element2">
             <input type="number" class="input_charge" id="charge2">
-            <input type="number" class="amount" id="amount2" value="2">
+
+            <input type="number" class="amount" id="amount2" >
 
         
             <h1 id="Arrow" class="main_child">-></h1>
         </div>
-        <h3 id="ans" class="main_child"></h3>
+        <h3 id="ans" class="main_child"></h3> 
         <!-- <input type="text" class="main_child main_input" disabled id="ans"> -->
     </form>
     </main>
@@ -35,13 +36,12 @@
         let element2 = document.querySelector("#element2");
         let charge2 = document.querySelector("#charge2");
         let amount1 = document.querySelector("#amount1");
-        let amount2 = document.querySelector("#amount2");
-        let form = document.querySelector("#main_form")
+        let amount2 = document.getElementById("amount2");
+        let form = document.querySelector("#main_form");
 
-    form.addEventListener("input", async function(){
+    amount2.addEventListener("change", async function(){
         let response = await fetch("/fetch?q=" + element1.value + "&w=" + charge1.value + "&e=" + element2.value + "&r=" + charge2.value + "&t=" + amount1.value + "&y=" + amount2.value);
         let answer = await response.text();
-        console.log(answer);
         document.getElementById("ans").innerHTML = answer;
 })
     </script>
