@@ -38,3 +38,7 @@ def fetch():
         rtnHTML = "Error - enter all felids"
 
     return rtnHTML
+
+@app.route("/periodic_table")
+def periodic_table():
+    return render_template("periodic_table.html")
