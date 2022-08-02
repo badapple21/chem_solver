@@ -108,3 +108,17 @@ footer{
     grid-column: 10;
     text-align: center;
 }
+
+.img-div {
+    display: flex;
+}
+
+.img {
+    text-align: center;
+    margin: 10%  auto;
+}
+
+#ions {
+    width: fit-content;
+    height: auto;
+}

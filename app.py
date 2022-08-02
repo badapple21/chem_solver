@@ -42,3 +42,7 @@ def fetch():
 @app.route("/periodic_table")
 def periodic_table():
     return render_template("periodic_table.html")
+
+@app.route("/polyatomic_ions")
+def polyatmoic_ions():
+    return render_template("polyatomic_ions.html")
