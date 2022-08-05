@@ -1,10 +1,8 @@
 from math import fabs, prod
 
 
-def solve(q, w, e, r, t, y):
-    reactant1 = q
+def solve(reactant1, w, reactant2, r, t, y):
     charge1 = fabs(int(w))
-    reactant2 = e
     charge2 = fabs(int(r))
 
     amount1 = int(t)
@@ -12,6 +10,7 @@ def solve(q, w, e, r, t, y):
 
     value1 = charge2
     value2 = charge1
+
 
     for k in range(2, 10):
         if(value1 % k == 0) and (value2 % k == 0):
@@ -27,11 +26,8 @@ def solve(q, w, e, r, t, y):
             test1 = i*amount1
             test2 = j*amount2
             for l in range(2, max+1):
-                print(f"{test1} % {l} == {test1 % l} and {test2} % {l} == {test2 % l}")
                 if(test1 % l == 0) and (test2 % l == 0):
                     if(test1 == l*value1) and (test2 == l*value2):
-
-
                         for r in range(2, 10):
                             if(i % r == 0) and (j % r == 0) and (l % r == 0):
                                 i  = int(i/r)
@@ -44,24 +40,21 @@ def solve(q, w, e, r, t, y):
     else:
         return "Error", "-1", "-1", "-1", "-1", "-1", "-1", "-1", "-1", "-1"
 
-
+def check_1(num):
+    if(num == 1):
+        return ""
+    else:
+        return num
 
 def format(coefficient1, coefficient2, charge1, charge2, reactant1, reactant2, amount1, amount2, product_coefficient):
 
-    if(coefficient1 == 1):
-        coefficient1 = ""
-    if(coefficient2 == 1):
-        coefficient2 = ""
-    if(int(amount1) == 1):
-        amount1 = ""
-    if(int(amount2) == 1):
-        amount2 = ""
-    if(int(charge1) == 1):
-        charge1 = ""
-    if(int(charge2) == 1):
-        charge2 = ""
-    if(product_coefficient == 1):
-        product_coefficient = ""
+    coefficient1 = check_1(coefficient1)
+    coefficient2 = check_1(coefficient2)
+    amount1 = check_1(amount1)
+    amount2 = check_1(amount2)
+    charge1 = check_1(charge1)
+    charge2 = check_1(charge2)
+    product_coefficient = check_1(product_coefficient)
     
 
     HTML = f"{coefficient1}{reactant1}<sub>{amount1}</sub> + {coefficient2}{reactant2}<sub>{amount2}</sub> -> {product_coefficient}{reactant1}<sub>{charge1}</sub>{reactant2}<sub>{charge2}</sub>"
