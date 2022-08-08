@@ -12,6 +12,7 @@ def solve(reactant1, w, reactant2, r, t, y):
     value2 = charge1
 
 
+    # reduces the amounts to the least common factors helps simplify later
     for k in range(2, 10):
         if(value1 % k == 0) and (value2 % k == 0):
             amount1 =  value1  = int(value1/k)
