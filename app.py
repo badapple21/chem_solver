@@ -10,12 +10,12 @@ app = Flask(__name__)
 # Ensure auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-
+#render main page
 @app.route("/")
 def index():
     return render_template("index.html")
 
-
+#fetch request for solving the equation
 @app.route("/fetch")
 def fetch():
     q = request.args.get("q")
@@ -24,13 +24,16 @@ def fetch():
     r = request.args.get("r")
     t = request.args.get("t")
     y = request.args.get("y")
-
+    
+    #checks if user has enterd all the feilds
     if q and w and e and r and t and y:
         status, coefficient1, coefficient2, charge1, charge2, reactant1, reactant2, t, y, product_coefficient = solve(
             q, w, e, r, t, y)
+        # if the solver could not work up a soultion
         if(status == "Error"):
             rtnHTML = "Could not calculate"
         else:
+            # formats the data to a string for the html
             rtnHTML = format(coefficient1, coefficient2, int(charge1),
                              int(charge2), reactant1, reactant2, int(t), int(y), int(product_coefficient))
 
@@ -39,10 +42,12 @@ def fetch():
 
     return rtnHTML
 
+# renders periodic table
 @app.route("/periodic_table")
 def periodic_table():
     return render_template("periodic_table.html")
 
+#renders polyatomic_ions
 @app.route("/polyatomic_ions")
 def polyatmoic_ions():
     return render_template("polyatomic_ions.html")
