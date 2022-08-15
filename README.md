@@ -1,2 +1,2 @@
 # chem_solver
-cs50 final project
+solves chem reaction equations and balances them with other features to help with general chem 
