@@ -29,6 +29,17 @@ footer{
 }
 
 
+#Element_lookup_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15%;
+    justify-content: center;
+}
+
+#Element_lookup_input {
+}
+
 
 .main {
     display: flex;

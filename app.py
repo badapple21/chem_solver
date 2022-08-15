@@ -15,6 +15,22 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 def index():
     return render_template("index.html")
 
+
+#fetch route for looking uop elements on the periodic table page
+@app.route("/fetch_lookup_element")
+def fetch_lookup_elemetn():
+    q = request.args.get("w")
+    if q:
+        possible_elements = periodic.lookup_element(q)
+        HTML = ""
+        for possible_element_number in possible_elements:
+            e = periodic.Element(possible_element_number)
+            HTML += e.lookup()
+
+        print(HTML)
+        return HTML
+
+
 #fetch request for solving the equation
 @app.route("/fetch")
 def fetch():
