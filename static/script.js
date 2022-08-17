@@ -12,11 +12,3 @@ amount2.addEventListener("change", async function(){
     let answer = await response.text();
     document.getElementById("ans").innerHTML = answer;
 })
-
-element_lookup.addEventListener("change", async function(){
-    let response = await fetch("/fetch_lookup_element?q=" + element_lookup.value());
-    let answer = await response.text();
-    console.log(answer);
-    document.getElementById("lookup_response").innerHTML = answer;
-
-})
