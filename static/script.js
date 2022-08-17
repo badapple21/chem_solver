@@ -11,7 +11,7 @@ amount2.addEventListener("change", async function(){
     let response = await fetch("/fetch?q=" + element1.value + "&w=" + charge1.value + "&e=" + element2.value + "&r=" + charge2.value + "&t=" + amount1.value + "&y=" + amount2.value);
     let answer = await response.text();
     document.getElementById("ans").innerHTML = answer;
-}
+})
 
 element_lookup.addEventListener("change", async function(){
     let response = await fetch("/fetch_lookup_element?q=" + element_lookup.value());
@@ -19,4 +19,4 @@ element_lookup.addEventListener("change", async function(){
     console.log(answer);
     document.getElementById("lookup_response").innerHTML = answer;
 
-}
+})
