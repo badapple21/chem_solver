@@ -1,14 +1,11 @@
-
-
 from crypt import methods
 import os
 import sys
 from flask import Flask, redirect, render_template, request, session, json
 from flask_session import Session
-from solver import solve, format
 
-sys.path.insert(0, '/home/michael/code/chem_solver/periodic_table')
-from periodic import lookup_element
+from periodic_table.periodic import lookup_element, element
+from solver.solver import solve, format
 
 # configure application
 app = Flask(__name__)
