@@ -29,11 +29,12 @@ footer{
 }
 
 
-#Element_lookup_form {
+#Element_lookup_form_table {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 15%;
+    text-align: center;
     justify-content: center;
 }
 
