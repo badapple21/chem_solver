@@ -18,7 +18,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+   return render_template("index.html")
 
 
 # fetch route for looking uop elements on the periodic table page
@@ -33,7 +33,7 @@ def fetch_lookup_element():
             rtnHTML += e.lookup()
 
         return rtnHTML
-    return "Error"
+    return ""
 
 # fetch request for solving the equation
 
