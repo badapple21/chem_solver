@@ -6,7 +6,7 @@ let amount1 = document.querySelector("#amount1");
 let amount2 = document.getElementById("amount2");
 let form = document.querySelector("#main_form");
 
-amount2.addEventListener("change", async function(){
+form.addEventListener("input", async function(){
     let response = await fetch("/fetch?q=" + element1.value + "&w=" + charge1.value + "&e=" + element2.value + "&r=" + charge2.value + "&t=" + amount1.value + "&y=" + amount2.value);
     let answer = await response.text();
     document.getElementById("ans").innerHTML = answer;
