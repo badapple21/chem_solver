@@ -9,24 +9,12 @@
     <table id="Element_lookup_form_table">
         <tr>
             <th>
-            <form id="Element_lookup_form">
+            <form autocomplete="off" id="Element_lookup_form">
                 <h2>Look up Element</h2>
                 <input type="text" id="Element_lookup_input">
             </form>
             </th>
         </tr> 
         <tbody id="lookup_response"></tbody></table>
-    <script>
-        let element_lookup = document.querySelector("#Element_lookup_input");
-        console.log(element_lookup);
-
-        element_lookup.addEventListener("change", async function(){
-            console.log(element_lookup.value);
-            let response = await fetch("/fetch_lookup_element?q=" + element_lookup.value);
-            let answer = await response.text();
-            document.getElementById("lookup_response").innerHTML = answer;
-        })
-
-    </script>
-    <!-- <script src="../static/lookup.js" type="text/javascipt"></script> -->
+    <script src="../static/lookup.js" type="text/javascript">
 {% endblock %}
