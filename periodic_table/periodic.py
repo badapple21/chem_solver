@@ -21,7 +21,7 @@ class element(object):
         return cursor.fetchone()[0].strip()
 
     def lookup(self):
-        return f"<tr>{self.get_from_db('Name')}</tr>"
+        return f"<tr>{self.get_from_db('Name')}. <span style='text-align: right;'>{self.get_from_db('Symbol')}</span></tr>"
 
 # function that ask the db for any elements that are like query by symbol or name
 
@@ -30,24 +30,17 @@ def lookup_element(q):
     # formats query
     q = str(q).lower() + "%"
     rtn = []
-
-    # ask for any like symbol
+    
+    #look through database for matching elements by name or by symbol 
     cursor.execute(
-        ("SELECT Atomic_number FROM elements WHERE Symbol LIKE ? LIMIT 3;"), (q,))
-
-    # adds to list
-    rtn.append(cursor.fetchall())
-
-    # does the same but for name
-    cursor.execute(
-        ("SELECT Atomic_number FROM elements WHERE Name LIKE ? LIMIT 3"), (q,))
+        ("SELECT Atomic_number FROM elements WHERE Name LIKE ? OR Symbol LIKE ?"), (q,q ))
 
     # adds to list
     rtn.append(cursor.fetchall())
 
     form_rtn = []
     # formats rtn data before return
-    for num in rtn[1].copy():
+    for num in rtn[0].copy():
         form_rtn.append(int(num[0]))
 
     # return list of possible atomic #'s

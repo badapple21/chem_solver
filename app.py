@@ -24,17 +24,14 @@ def index():
 # fetch route for looking uop elements on the periodic table page
 @app.route("/fetch_lookup_element")
 def fetch_lookup_element():
-    print("fetched")
     q = request.args.get("q")
     if q:
-        print("in q")
         possible_elements = lookup_element(q)
         rtnHTML = ""
         for possible_element_number in possible_elements:
             e = element(possible_element_number)
             rtnHTML += e.lookup()
 
-        print(rtnHTML)
         return rtnHTML
     return "Error"
 
