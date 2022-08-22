@@ -21,11 +21,13 @@ class element(object):
         return cursor.fetchone()[0].strip()
 
     def lookup(self):
-        return f"<a href='/fetch_lookup_element?={self.get_from_db('name')}'> <tr>{self.get_from_db('Name')}, <span style='text-align: right;'>{self.get_from_db('Symbol')}</span></a></tr>"
+        return f"<tr><button id='{self.get_from_db('Atomic_number')}' class='btn Default'>{self.get_from_db('Name')}, <span>{self.get_from_db('Symbol')}</span></button></tr>"
+    
+    def get_element_info(self):
+        return f"<div id='elements_info_div'><div id='Atomic_number'>{self.get_from_db('Atomic_number')}</div><div id='element_symbol'>{self.get_from_db('Symbol')}</div><div id='element_name'>{self.get_from_db('Name')}</div></div>"
+
 
 # function that ask the db for any elements that are like query by symbol or name
-
-
 def lookup_element(q):
     # formats query
     q = "%" +  str(q).lower() + "%"
